@@ -124,3 +124,84 @@ const createdCard = (arr) => {
 
     }
 }
+
+
+//scroll
+
+window.addEventListener('scroll', () => {
+  const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+
+  if(clientHeight + scrollTop >= scrollHeight - 20) {
+    addPoke(4);
+}
+
+
+})
+
+ let index = 21;
+const addPoke = (nbr) => {
+ 
+
+  if(index > 151) {
+    return
+  } else {
+    const blocToAdd = allPokemon.slice(index, index + nbr);
+    console.log(index, index + nbr);
+    createdCard(blocToAdd)
+    index += nbr
+  }
+
+
+
+}
+
+
+//recherche
+
+
+const recherche = () => {
+
+
+//   if(index < 151) {
+//     addPoke(130);
+// }
+
+let titleValue,inputValue,allCards, allTitles
+
+ inputValue = searchInput.value.toUpperCase();
+ allCards = document.querySelectorAll("li");
+ allTitles = document.querySelectorAll("h5");
+
+for (i=0; i< allCards.length; i++) {
+   titleValue = allTitles[i].innerText
+
+   if(titleValue.toUpperCase().includes(inputValue) ) {
+    allCards[i].style.display ="flex"
+   } else {
+    allCards[i].style.display ="none"
+   }
+
+
+
+}
+
+
+
+}
+
+searchInput.addEventListener('keyup', recherche);
+
+
+
+
+// Animation Input
+
+searchInput.addEventListener('input', function(e) {
+
+  if(e.target.value !== "") {
+      e.target.parentNode.classList.add('active-input');
+  } else if (e.target.value === "") {
+      e.target.parentNode.classList.remove('active-input');
+  }
+
+})
