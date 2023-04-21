@@ -1,5 +1,6 @@
 const searchInput = document.querySelector(".recherche-poke input");
 const listePoke = document.querySelector('.liste-poke');
+const chargement = document.querySelector('.loader');
 
 let allPokemon = [];
 let tableauFin = [];
@@ -91,6 +92,7 @@ const fetchPokemonComplet = (pokemon) => {
             console.log(tableauFin)
 
             createdCard(tableauFin)
+            chargement.style.display ="none"
 
           }
         });
