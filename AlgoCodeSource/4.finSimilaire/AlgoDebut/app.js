@@ -1,9 +1,26 @@
 function finSimilaire(str, fin) {
 
 
+
+    let sliceWord = str.slice(-fin.length)
+
+    if(sliceWord === fin) {
+        return "La fin est similaire"
+    }else {
+        "La fin ne correspond pas" 
+    }
+
+
+
+    
+
+
 }
 
 console.log(finSimilaire("ours", "rs"));
+
+
+console.log("hello".slice(2));
 
 
 
