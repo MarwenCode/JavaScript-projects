@@ -4,7 +4,7 @@ const inpMdp = document.querySelector('.form-groupe:nth-child(3) input');
 const inpConfirme = document.querySelector('.form-groupe:nth-child(4) input');
 const allImg = document.querySelectorAll('.icone-verif');
 const allSpan = document.querySelectorAll('span');
-const allLigne = document.querySelectorAll('.ligne div');
+const allLigne = document.querySelectorAll('.ligne');
 
 
 inpUtilisateur.addEventListener('input', (e) => {

@@ -83,7 +83,7 @@ let objValidation = {
 }
 
 
-inpMdp.addEventListener('input', (e) => {
+inpMdp.addEventListener('input', (e) => { 
 
       valeurInp = e.target.value;
 
@@ -113,6 +113,44 @@ inpMdp.addEventListener('input', (e) => {
     } 
 
     console.log(objValidation)
+
+  let testAll = 0;
+    for(const property in objValidation){
+        if(objValidation[property] > 0){
+            testAll++;
+        }
+    }
+    if(testAll < 3){
+        allSpan[2].style.display = "inline";
+        allImg[2].style.display = "inline";
+        allImg[2].src = "ressources/error.svg";
+    } else {
+        allSpan[2].style.display = "none";
+        allImg[2].src = "ressources/check.svg";
+    }
+
+    // password security 
+    if(valeurInp.length <= 6 && valeurInp.length > 0 ) {
+        allLigne[0].style.display = "block"
+        allLigne[1].style.display = "none"
+        allLigne[2].style.display = "none"
+
+
+    }else if (valeurInp.length > 6 && valeurInp.length <= 9 ) {
+        allLigne[0].style.display = "block"
+        allLigne[1].style.display = "block"
+        allLigne[2].style.display = "none"
+
+    }else if (valeurInp.length > 9 ) {
+        allLigne[0].style.display = "block"
+        allLigne[1].style.display = "block"
+        allLigne[2].style.display = "block"
+
+    }else if (valeurInp.length === 0) {
+        allLigne[0].style.display = 'none';
+        allLigne[1].style.display = 'none';
+        allLigne[2].style.display = 'none';
+    }
 
 
 
